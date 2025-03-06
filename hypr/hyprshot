@@ -1,0 +1,10 @@
+#!/bin/bash
+
+TEMP_FILE=$(mktemp --suffix=.png)
+grim -g "$(slurp)" "$TEMP_FILE"
+
+wl-copy < "$TEMP_FILE"
+
+rm "$TEMP_FILE"
+
+echo "Screenshot copied"
