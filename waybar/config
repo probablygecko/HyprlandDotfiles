@@ -5,7 +5,7 @@
     
     "modules-left": ["hyprland/workspaces", "hyprland/mode"],
     "modules-center": ["hyprland/window", "clock"],
-    "modules-right": ["pulseaudio", "network","cpu","memory", "tray"],
+    "modules-right": ["battery","pulseaudio", "network","cpu","memory", "tray"],
     
     "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -52,5 +52,17 @@
         "format-source": "{volume}% ", // mic
         //"format-source-muted": "",
         "on-click": "pavucontrol"
-    }
+    },
+    "battery": {
+        "states": {
+            	"warning": 30,
+           	"critical": 15
+       	},
+       	"format": "{icon} {capacity}%",
+       	"format-charging": " {capacity}%",
+       	"format-plugged": "{capacity}%",
+       	"format-alt": "{time} {icon}",
+       	"format-full": " {capacity}%",
+       	"format-icons": ["", "", ""]
+   },
 }
