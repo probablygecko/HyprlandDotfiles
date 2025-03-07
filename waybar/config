@@ -1,0 +1,56 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 10, // Waybar height (to be removed for auto height)
+    
+    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
+    "modules-center": ["hyprland/window", "clock"],
+    "modules-right": ["pulseaudio", "network","cpu","memory", "tray"],
+    
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+
+        "format": "|   {:%H:%M }",
+        "format-alt": "|   {:%Y-%m-%d}"
+      
+    },
+    "cpu": {
+        "format": "   {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "   {}% "
+    },
+    "temperature": {
+        "thermal-zone": 1,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% 󰓃 {format_source}",
+        //"format-bluetooth": "{volume}%  {format_source}",
+        //"format-bluetooth-muted": " {format_source}",
+        //"format-muted": " {format_source}",
+        "format-source": "{volume}% ", // mic
+        //"format-source-muted": "",
+        "on-click": "pavucontrol"
+    }
+}
